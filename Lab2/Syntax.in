@@ -9,7 +9,7 @@
 <condition>::=<expression>|<expression><relation><condition>|"!"<expression>
 <relation>::="=="|"<"|">"|"<="|">="|"!="|"and"|"or"
 
-//you already have the statment end ";" here so you don't need it for other statements(ti le-am sters eu bo$$)
+//you already have the statment end ";" here so you don't need it for other statements
 <compound_statement>::=<simple_statement>";"|<simple_statement>";"<compound_statement>
 <simple_statement>::=<io_stmt>|<assign_stmt>|<increment_stmt>|<decrement_stmt>|<arith_assign_stmt>
 <struct_stmt>::=<if_stmt>|<while_stmt>|<for_stmt>
@@ -29,5 +29,5 @@
 <initialization>::=<variable_declaration>|<assign_stmt>
 <iteration>::=<assign_stmt>|<increment_stmt>|<decrement_stmt>|<arith_assign_stmt>
 
-//you should also treat the case when the special character is # (nu ma intreba cum ca nici io nu stiu)
+//you should also treat the case when the special character is #
 <comment>::="#"<string_constant>
