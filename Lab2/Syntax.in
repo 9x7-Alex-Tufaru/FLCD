@@ -5,11 +5,11 @@
 <identifier_list>::=<identifier>|<identifier>","<identifier_list>
 <io_stmt>::="read""("<identifier_list>")"|"write""("<identifier_list>")"";"
 <array_declaration>::=<type>"[""]" <identifier>";"
-<if_stmt>::="if""("<condition>")""{"<statement>"}"|"if""("<condition>")""{"<statement>"}""else""{"<statement>"}"|"if""("<condition>")""{"<statement>"}""else""if""("<condition>")""{"<statement>"}"
+<if_stmt>::="if""("<condition>")""{"<statement>"}"|"if""("<condition>")""{"<statement>"}""else""{"<statement>"}"|"if""("<condition>")""{"<statement>"}""else""<if_stmt>
 <condition>::=<expression>|<expression><relation><condition>|"!"<expression>
 <relation>::="=="|"<"|">"|"<="|">="|"!="|"and"|"or"
 
-//you already have ";" here so you don't need it for other statements(ti le-am sters eu bo$$)
+//you already have the statment end ";" here so you don't need it for other statements(ti le-am sters eu bo$$)
 <compound_statement>::=<simple_statement>";"|<simple_statement>";"<compound_statement>
 <simple_statement>::=<io_stmt>|<assign_stmt>|<increment_stmt>|<decrement_stmt>|<arith_assign_stmt>
 <struct_stmt>::=<if_stmt>|<while_stmt>|<for_stmt>
