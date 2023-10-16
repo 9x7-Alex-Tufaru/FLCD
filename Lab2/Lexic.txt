@@ -21,11 +21,15 @@ b. identifiers:
 c. constants:
 	1. integer constant:
 		<integer_const>::=0|"+"<number>|"-"<number>|<number>
-		<number>::=<non_zero_digit>|<non_zero_digit><digit_seq>
-   		<digit_seq>::=<digit><digit_seq>
+		<number>::=<non_zero_digit>|<non_zero_digit><digit_sequence>
+		<non_zero_digit>::=1|2|3|...|9
 	2. char constant:
+		//i'm not sure if single or double quotes can be used like this since they are escaping characters for BNF
+		//maybe you should write ''' insted of '
 		<char_constant>::='<letter>'|'<digit>'|'<special_character>'
+		//you can define a small finite amount like !|@|#|&|~ or some more
 		<special_character>::=!|@|#|...
 	3. string constant:
+		//same thing here with ""
 		<string_constant>::="<char>"|"<char><string_constant>"
 		<char>::=<letter>|<digit>|<special_character>
