@@ -1,32 +1,56 @@
 <program>::=<variable_declaration>|<statement>|<variable_declaration><program>|<statement><program>
 
 <type>::="int"|"chr"|"str"|"bool"
+
 <variable_declaration>::=<type> <identifier>";"|<type> <identifier_list>";"|<type> <identifier>"="<expression>";"
+
 <identifier_list>::=<identifier>|<identifier>","<identifier_list>
-<io_stmt>::="read""("<identifier_list>")"|"write""("<identifier_list>")"";"
+
+<io_stmt>::="read""("<identifier_list>")"|"write""("<identifier_list>")"
+
 <array_declaration>::=<type>"[""]" <identifier>";"
+
 <if_stmt>::="if""("<condition>")""{"<statement>"}"|"if""("<condition>")""{"<statement>"}""else""{"<statement>"}"|"if""("<condition>")""{"<statement>"}""else""<if_stmt>
+
 <condition>::=<expression>|<expression><relation><condition>|"!"<expression>
+
 <relation>::="=="|"<"|">"|"<="|">="|"!="|"and"|"or"
 
 //you already have the statment end ";" here so you don't need it for other statements
 <compound_statement>::=<simple_statement>";"|<simple_statement>";"<compound_statement>
+
 <simple_statement>::=<io_stmt>|<assign_stmt>|<increment_stmt>|<decrement_stmt>|<arith_assign_stmt>
+
 <struct_stmt>::=<if_stmt>|<while_stmt>|<for_stmt>
+
 <statement>::=<compound_stmt>|<struct_stmt>
+
 <expression>::=<term>|<term><operator1><term>
+
 <term>::=<factor>|<factor><operator2><factor>
+
 <factor>::=<identifier>|<constant>|"("<expression>")"
+
 <constant>::=<integer_const>|<string_const>
+
 <operator1>::="+"|"-"
+
 <operator2>::="*"|"/"
+
 <while_stmt>::="while""("<condition>")" "{"<compound_statement>"}"
+
 <assign_stmt>::=<identifier>"="<expression>
+
 <increment_stmt>::=<identifier>"++"
+
 <decrement_stmt>::=<identifier>"--"
+
 <arith_assign_stmt>::=<identifier>"+="<expression>
+
 <for_stmt>::="for""("<initialization>";"<expression>";"<iteration>")" "{"<statement>"}"
+
 <initialization>::=<variable_declaration>|<assign_stmt>
+
 <iteration>::=<assign_stmt>|<increment_stmt>|<decrement_stmt>|<arith_assign_stmt>
 
 //you should also treat the case when the special character is #
