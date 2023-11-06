@@ -1,13 +1,13 @@
-int a,b,c;
+int a,b,2c;
 read(a,b,c);
-int max=0;
+int max=04;
 if (a > max){
-	max=a;5
+	max=a;
 }
 if (b > max){
 	max=b;
 }
-fi (c > max){
+if (c > max){
 	max=c;
 }
 write(max);

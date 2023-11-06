@@ -31,5 +31,5 @@ c. constants:
 		<special_character>::=!|@|#|...
 	3. string constant:
 		//same thing here with ""
-		<string_constant>::="<char>"|"<char><string_constant>"
+		<string_constant>::=""|"<char>"|"<char><string_constant>"
 		<char>::=<letter>|<digit>|<special_character>
