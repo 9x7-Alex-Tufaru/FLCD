@@ -1,0 +1,33 @@
+Position -> Symbol
+0 -> c
+1 -> a
+2 -> max
+3 -> b
+4 -> 0
+
+Position -> Symbol
+0 -> gcd
+1 -> 1
+2 -> smaller
+3 -> a
+4 -> y
+5 -> x
+6 -> b
+7 -> 0
+8 -> i
+9 -> f
+
+Position -> Symbol
+0 -> sum
+1 -> nr
+2 -> n
+3 -> i
+4 -> f
+5 -> 0
+
+Position -> Symbol
+0 -> c
+1 -> a
+2 -> max
+3 -> b
+

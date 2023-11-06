@@ -1,16 +1,47 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+from Scanner import Scanner
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+def getTokensFromFile():
+    file = open("Tokens.in", 'r')
+    operators = []
+    separators = []
+    reservedWords = []
+    lines = [line.strip() for line in file.readlines()]
+    for line in lines:
+        elements = line.split()
+        if elements[1] == "operator":
+            operators.append(elements[0])
+        elif elements[1] == "separator":
+            separators.append(elements[0])
+        elif elements[1] == "reserved_word":
+            reservedWords.append(elements[0])
+    return operators, separators, reservedWords
 
 
-# Press the green button in the gutter to run the script.
+def printResultToFile(scanner):
+    scanner.scan()
+    pif = open("PIF.out", 'a')
+    pif.write(str(scanner.PIF))
+    pif.close()
+    st = open("ST.out", 'a')
+    st.write(str(scanner.symbolTable))
+    st.close()
+
+
+def runScanner():
+    operators, separators, reservedWords = getTokensFromFile()
+    separators.append(' ')
+    open("PIF.out", 'w').close()
+    open("ST.out", 'w').close()
+    scanner1 = Scanner(7, operators, separators, reservedWords, "p1.txt")
+    scanner2 = Scanner(7, operators, separators, reservedWords, "p2.txt")
+    scanner3 = Scanner(7, operators, separators, reservedWords, "p3.txt")
+    scanner1_err = Scanner(7, operators, separators, reservedWords, "p1_err.txt")
+    printResultToFile(scanner1)
+    printResultToFile(scanner2)
+    printResultToFile(scanner3)
+    printResultToFile(scanner1_err)
+
+
 if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    runScanner()

@@ -1,0 +1,9 @@
+int n;
+read(n);
+int nr;
+int sum = 0;
+for(int i = 0, i < n; i++){
+	read(nr);
+	sum += nr;
+}
+write(nr);

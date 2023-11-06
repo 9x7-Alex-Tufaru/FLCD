@@ -1,0 +1,16 @@
+int a,b;
+read(a,b);
+int smaller;
+if(x > y){
+	smaller = y;
+}
+else{
+	smaller = x;
+}
+int gcd;
+for(int i = 1; i <= smaller; i++){
+	if ((x % i == 0) and (y % i == 0)){
+		gcd = i;
+	}
+}
+write(gcd);

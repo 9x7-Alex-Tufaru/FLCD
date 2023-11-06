@@ -14,13 +14,13 @@ class HashTable:
         """
         Function to find the hash of an item
         :param item: the item we want to find the hash of
-        :return: the hash value mod the capacity of the table
+        :return: the hash value mod the capacity of the list
         """
         return hash(item) % self.capacity
 
     def insert(self, value):
         """
-        Function to insert a value in the hash table
+        Function to insert a value in the hash list
         :param value: the value to be added
         """
         if self.__contains__(value):
@@ -30,7 +30,6 @@ class HashTable:
             self.table[index] = Node(value)
             self.size += 1
         else:
-            current = self.table[index]
             new_node = Node(value)
             new_node.next = self.table[index]
             self.table[index] = new_node
@@ -38,7 +37,7 @@ class HashTable:
 
     def remove(self, value):
         """
-        Function to remove an item from the table
+        Function to remove an item from the list
         :param value: the item to be removed
         """
         index = self._hash(value)
@@ -58,9 +57,9 @@ class HashTable:
 
     def __contains__(self, item):
         """
-        Function to check if an item is in the hash table
+        Function to check if an item is in the hash list
         :param item: the item that the presence of is checked
-        :return: True if the item is in the table, False otherwise
+        :return: True if the item is in the list, False otherwise
         """
         for i in range(len(self.table)):
             current = self.table[i]
@@ -82,10 +81,23 @@ class HashTable:
 
     def findPos(self, item):
         """
-        Function to get the position of an item in the table
+        Function to get the position of an item in the list
         :param item: the item whose position is searched
-        :return: the hash of the item if the item is in the table, -1 otherwise
+        :return: the hash of the item if the item is in the list, -1 otherwise
         """
         if not self.__contains__(item):
             return -1
-        return self._hash(item)
+        for elem in self.getAllElements():
+            if elem[1] == item:
+                return elem[0]
+
+    def getAllElements(self):
+        elements = []
+        index = 0
+        for i in range(self.capacity):
+            current = self.table[i]
+            while current:
+                elements.append((index, current.value))
+                index += 1
+                current = current.next
+        return elements
