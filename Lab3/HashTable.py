@@ -30,10 +30,13 @@ class HashTable:
             self.table[index] = Node(value)
             self.size += 1
         else:
+            current = self.table[index]
+            while current.next:
+                current = current.next
             new_node = Node(value)
-            new_node.next = self.table[index]
-            self.table[index] = new_node
+            current.next = new_node
             self.size += 1
+        return self.size - 1
 
     def remove(self, value):
         """

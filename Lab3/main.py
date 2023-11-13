@@ -21,9 +21,11 @@ def getTokensFromFile():
 def printResultToFile(scanner):
     scanner.scan()
     pif = open("PIF.out", 'a')
+    pif.write(scanner.fileName + "\n")
     pif.write(str(scanner.PIF))
     pif.close()
     st = open("ST.out", 'a')
+    st.write(scanner.fileName + "\n")
     st.write(str(scanner.symbolTable))
     st.close()
 
@@ -38,9 +40,9 @@ def runScanner():
     scanner3 = Scanner(7, operators, separators, reservedWords, "p3.txt")
     scanner1_err = Scanner(7, operators, separators, reservedWords, "p1_err.txt")
     printResultToFile(scanner1)
-    printResultToFile(scanner2)
-    printResultToFile(scanner3)
-    printResultToFile(scanner1_err)
+    # printResultToFile(scanner2)
+    # printResultToFile(scanner3)
+    # printResultToFile(scanner1_err)
 
 
 if __name__ == '__main__':

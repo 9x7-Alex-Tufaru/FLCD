@@ -19,6 +19,9 @@ class Scanner:
     def getPIF(self):
         return self.PIF
 
+    def getFileName(self):
+        return self.fileName
+
     def getTokens(self):
         """
         Gets the tokens from the source code
@@ -27,12 +30,14 @@ class Scanner:
         tokens = []
         lines = [line.strip() for line in source.readlines()]
         delimiters = self.separators + self.operators
+        # delimiters.append(" ")
         for line in lines:
             lineTokens = []
             currentToken = ""
             while line:
                 foundDelimiter = False
                 for delimiter in delimiters:
+
                     if line.startswith(delimiter):
                         if currentToken != "":
                             lineTokens.append(currentToken)

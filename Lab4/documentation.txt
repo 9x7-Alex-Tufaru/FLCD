@@ -1,0 +1,9 @@
+GitHub: 
+
+<FA>::=<initial_state>"\n"<final_states>"\n"<transitions>
+<state>::=0|1|...|9|a|b|...|z|A|B|...|Z
+<initial_state>::=<state>
+<final_states>::=<state>|<state><final_states>
+<transitions>::=<transition>|<transition><transitions>
+<transition>::=<state>" "<letter>" "<state>"\n"
+<letter>::=0|1|...|9|a|b|...|z|A|B|...|Z

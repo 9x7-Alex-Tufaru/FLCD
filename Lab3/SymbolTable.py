@@ -11,8 +11,7 @@ class SymbolTable:
         Function to insert a value in the hash list
         :param value: the value to be added
         """
-        self.hashTable.insert(value)
-        return self.findPos(value)
+        return self.hashTable.insert(value)
 
     def getHashTable(self):
         return self.hashTable
