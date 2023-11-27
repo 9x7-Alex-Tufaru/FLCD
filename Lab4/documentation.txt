@@ -1,4 +1,4 @@
-GitHub: 
+GitHub:  https://github.com/9x7-Alex-Tufaru/FLCD
 
 <FA>::=<initial_state>"\n"<final_states>"\n"<transitions>
 <state>::=0|1|...|9|a|b|...|z|A|B|...|Z
